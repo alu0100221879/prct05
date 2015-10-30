@@ -39,5 +39,16 @@ class Fraction
 		raise ArgumentError, "Los números deben ser enteros" unless (n1.is_a? Integer) && (n2.is_a? Integer)
 		return (n1 * n2) / Fraction.gcd(n1, n2)
 	end
+	
+	def *(n)
+		raise ArgumentError, "Una fracción sólo se puede multiplicar por otra fracción" unless n.instance_of? Fraction
+		return Fraction.new(@p * n.p, @q * n.q)
+	end
+	
+	def /(n)
+		raise ArgumentError, "Una fracción sólo se puede dividir por otra fracción" unless n.instance_of? Fraction
+		raise ArgumentError, "No se puede dividir entre 0" if n.p == 0
+		return Fraction.new(@p * n.q, @q * n.p)
+	end
 
 end
