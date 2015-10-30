@@ -26,6 +26,18 @@ class TestFraction < Test::Unit::TestCase
 		assert_raise(ArgumentError) {Fraction.new(1, '2')}
 		assert_raise(ArgumentError) {Fraction.new(1, 0)}
 		assert_raise(ArgumentError) {Fraction.new(1, -5)}
-	end	
+	end
+	
+	def test_gcd
+		assert_raise(ArgumentError) {Fraction.gcd('6', 4)}
+		assert_raise(ArgumentError) {Fraction.gcd(6, '4')}
+		assert_equal(2, Fraction.gcd(6, 4))
+	end
+	
+	def test_lcm
+		assert_raise(ArgumentError) {Fraction.lcm('6', 4)}
+		assert_raise(ArgumentError) {Fraction.lcm(6, '4')}
+		assert_equal(12, Fraction.lcm(6, 4))
+	end
 
 end
