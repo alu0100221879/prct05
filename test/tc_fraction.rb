@@ -16,14 +16,16 @@ class TestFraction < Test::Unit::TestCase
 	end
 	
 	def test_simple
+	
 		assert_equal("1/2", @medio.to_s)
+		assert_equal("1/2", Fraction.new(2, 4).to_s)
 		
 		assert_raise(ArgumentError) {@medio * ''}
 		assert_equal("1/4", (@medio * @medio).to_s)
 		
 		assert_raise(ArgumentError) {@cuarto / ''}
 		assert_raise(ArgumentError) {@cuarto / @zero}
-		assert_equal("4/2", (@medio / @cuarto).to_s)
+		assert_equal("2/1", (@medio / @cuarto).to_s)
 		
 		assert_raise(ArgumentError) {@medio + ''}
 		assert_equal("3/4", (@medio + @cuarto).to_s)

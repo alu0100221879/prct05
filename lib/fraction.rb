@@ -11,7 +11,8 @@ class Fraction
 		
 		raise ArgumentError, "El denominador debe ser un número entero positivo" unless q > 0
 		
-		@p, @q = p, q
+		r = Fraction.gcd(p.abs, q)
+		@p, @q = p / r, q / r
 		
 	end
 	
