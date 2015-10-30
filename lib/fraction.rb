@@ -50,5 +50,26 @@ class Fraction
 		raise ArgumentError, "No se puede dividir entre 0" if n.p == 0
 		return Fraction.new(@p * n.q, @q * n.p)
 	end
+	
+	def -@
+		return Fraction.new(-@p, @q)
+	end
+	
+	def +(n)
+		
+		raise ArgumentError, "Una fracción sólo se puede sumar a otra fracción" unless n.instance_of? Fraction
+		
+		denominator = Fraction.lcm(@q, n.q)
+		numerator_s = @p * (denominator / @q)
+		numerator_n = n.p * (denominator / n.q)
+		
+		return Fraction.new(numerator_s + numerator_n, denominator)
+		
+	end
+	
+	def -(n)
+		raise ArgumentError, "Una fracción sólo se puede restar por otra fracción" unless n.instance_of? Fraction
+		return self + (-n)
+	end
 
 end
