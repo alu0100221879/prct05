@@ -17,7 +17,7 @@ class Fraction
 	end
 	
 	def to_s
-		return "#{p}/#{q}"
+		return @q.abs == 1 ? "#{p * q}" : "#{p}/#{q}"
 	end
 	
 	def self.gcd(n1, n2)

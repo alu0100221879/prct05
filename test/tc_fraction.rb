@@ -25,7 +25,7 @@ class TestFraction < Test::Unit::TestCase
 		
 		assert_raise(ArgumentError) {@cuarto / ''}
 		assert_raise(ArgumentError) {@cuarto / @zero}
-		assert_equal("2/1", (@medio / @cuarto).to_s)
+		assert_equal("2", (@medio / @cuarto).to_s)
 		
 		assert_raise(ArgumentError) {@medio + ''}
 		assert_equal("3/4", (@medio + @cuarto).to_s)
